@@ -6,7 +6,7 @@ import Show from "../pages/Show";
 function Main(props) {
   const [customers, setCustomers] = useState(null);
 
-  const URL = "https://ifixit-backend.herokuapp.com/customers";
+  const URL = "https://ifixit-backend.herokuapp.com/customers/";
 
   const getCustomers = async () => {
     const response = await fetch(URL);
@@ -14,7 +14,7 @@ function Main(props) {
     setCustomers(data);
   };
 
-  const createdCustomers = async (custy) => {
+  const createdCustomers = async (customers) => {
     // make post request to create customers
     await fetch(URL, {
       method: "POST",
@@ -27,14 +27,14 @@ function Main(props) {
     getCustomers();
   };
 
-  const updateCustomers = async (custy, id) => {
+  const updateCustomers = async (customers, id) => {
     // make put request to create customers
     await fetch(URL + id, {
       method: "PUT",
       headers: {
         "Content-Type": "Application/json",
       },
-      body: JSON.stringify(custy),
+      body: JSON.stringify(customers),
     });
     // update list of customers
     getCustomers();
