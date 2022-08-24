@@ -1,4 +1,4 @@
-import React from "react";
+import { React } from "react";
 import "bulma/css/bulma.min.css";
 import "./App.css";
 // WE IMPORT OUR COMPONENTS
@@ -7,7 +7,7 @@ import Main from "./components/Main";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Header />
       <Main />
     </div>
