@@ -15,7 +15,7 @@ function Main(props) {
   };
 
   const createdCustomers = async (custy) => {
-    // make post request to create player
+    // make post request to create customers
     await fetch(URL, {
       method: "POST",
       headers: {
@@ -23,12 +23,12 @@ function Main(props) {
       },
       body: JSON.stringify(customers),
     });
-    //update list of player
+    //update list of customers
     getCustomers();
   };
 
   const updateCustomers = async (custy, id) => {
-    // make put request to create player
+    // make put request to create customers
     await fetch(URL + id, {
       method: "PUT",
       headers: {
@@ -36,7 +36,7 @@ function Main(props) {
       },
       body: JSON.stringify(custy),
     });
-    // update list of player
+    // update list of customers
     getCustomers();
   };
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom";
 // IMPORT ROUTER
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-createRoot.render(
+ReactDOM.render(
   <Router>
     <React.StrictMode>
       <App />
