@@ -1,7 +1,32 @@
+import { React } from "react";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null, errorInfo: null };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Catch errors in any components below and re-render with error message
+    this.setState({
+      error: error,
+      errorInfo: errorInfo,
+    });
+    // You can also log error messages to an error reporting service here
+  }
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
 
 function Main(props) {
   const [customers, setCustomers] = useState(null);
@@ -53,7 +78,8 @@ function Main(props) {
     getCustomers();
   }, []);
 
-  return (
+  <ErrorBoundary>
+    return (
     <main>
       <Routes>
         <Route exact path="/">
@@ -74,7 +100,8 @@ function Main(props) {
         )}
       </Routes>
     </main>
-  );
+    );
+  </ErrorBoundary>;
 }
 
 export default Main;
