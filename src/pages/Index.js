@@ -3,9 +3,6 @@ import { useState } from "react";
 import { Card } from "react-bulma-components";
 import { Button } from "react-bulma-components";
 import { Form } from "react-bulma-components";
-import { Field } from "react-bulma-components";
-import { Label } from "react-bulma-components";
-import { Control } from "react-bulma-components";
 
 function Index(props) {
   // state to hold formData
